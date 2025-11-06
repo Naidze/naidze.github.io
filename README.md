@@ -1,32 +1,55 @@
 # naidze.github.io
 
-A GitHub Pages site built with Jekyll.
+A GitHub Pages site built with React, TypeScript, and Vite.
 
 ## Setup
 
 1. Install dependencies:
    ```bash
-   bundle install --path vendor/bundle
+   npm install
    ```
 
-2. Build the site:
+2. Run development server:
    ```bash
-   bundle exec jekyll build
+   npm run dev
    ```
+   Then visit `http://localhost:5173` in your browser.
 
-3. Serve locally (optional):
+3. Build for production:
    ```bash
-   bundle exec jekyll serve
+   npm run build
    ```
-   Then visit `http://localhost:4000` in your browser.
 
 ## Customization
 
-- Edit `_config.yml` to change site settings
-- Modify `index.md` to update the homepage
-- Add more pages by creating new `.md` or `.html` files
-- Customize the theme in `_config.yml` (currently using `minima`)
+- Edit `src/pages/Home.tsx` to update the homepage
+- Edit `src/pages/About.tsx` to update the about page
+- Add more pages by creating new components in `src/pages/` and adding routes in `src/App.tsx`
+- Customize the layout in `src/components/Layout.tsx`
+- Modify styles in `src/index.less` and `src/components/Layout.less`
 
 ## Deployment
 
-This site is automatically deployed to GitHub Pages when you push to the `main` branch.
+This site is automatically deployed to GitHub Pages when you push to the `main` branch using GitHub Actions.
+
+The deployment workflow:
+1. Builds the React app
+2. Deploys the `dist` folder to GitHub Pages
+3. Your site will be available at `https://naidzinavicius.dev`
+
+## Project Structure
+
+```
+├── src/
+│   ├── components/     # Reusable components (Layout)
+│   ├── pages/         # Page components (Home, About)
+│   ├── App.tsx        # Main app component with routing
+│   ├── main.tsx       # Entry point
+│   ├── vite-env.d.ts  # Vite TypeScript definitions
+│   └── index.less     # Global styles
+├── public/            # Static assets (favicon, etc.)
+├── index.html         # HTML template
+├── vite.config.ts     # Vite configuration
+├── tsconfig.json      # TypeScript configuration
+├── tsconfig.node.json # TypeScript config for Node.js files
+└── package.json       # Dependencies and scripts
