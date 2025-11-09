@@ -1,0 +1,55 @@
+// Variables
+@bg-color: #fff;
+@text-color: #111;
+@border-color: #e8e8e8;
+@shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.header {
+  background-color: @bg-color;
+  border-bottom: 1px solid @border-color;
+  box-shadow: @shadow;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.header-content {
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: row-reverse;
+  }
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: @text-color;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: @text-color;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-content {
+    padding: 0 1rem;
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+  }
+}
